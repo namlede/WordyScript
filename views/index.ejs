@@ -161,7 +161,7 @@
       function geturl(){
         var socket = io.connect('http://www.wordyscript.com');//fix this later I assume
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
-        bootstrap_alert.warning("http://www.wordyscript.com/"+hashCode(editor.getValue()));
+        bootstrap_alert.warning("http://www.wordyscript.com/"+hashCode(editor.getValue().replace(/"/g,"'")));
       }
     
       function changeButton() {
