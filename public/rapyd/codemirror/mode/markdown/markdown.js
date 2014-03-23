@@ -308,11 +308,11 @@ CodeMirror.defineMode("markdown", function(cmCfg, modeCfg) {
       return type;
     }
 
-    if (ch === '<' && stream.match(/^(https?|ftps?):\/\/(?:[^\\>]|\\.)+>/, false)) {
+    if (ch === '<' && stream.match(/^(https?|ftps?):\/\/(?:[^\\>]|\\.)+>/, true)) {
       return switchInline(stream, state, inlineElement(linkinline, '>'));
     }
 
-    if (ch === '<' && stream.match(/^[^> \\]+@(?:[^\\>]|\\.)+>/, false)) {
+    if (ch === '<' && stream.match(/^[^> \\]+@(?:[^\\>]|\\.)+>/, true)) {
       return switchInline(stream, state, inlineElement(linkemail, '>'));
     }
 
