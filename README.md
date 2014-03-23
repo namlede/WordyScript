@@ -36,3 +36,17 @@ new function fibonacci of n
     return b
 print fibonacci of 15
 ```
+
+Life, Univeres, and Everything:
+```python
+define new function lifeUniverseAndEverything of s
+	let i be 0
+	as long as i is less than s.length
+		if s[i] is equal to 42
+			return i;
+		increase i by 1
+	return -1
+
+s = [1,23,4,2241,3,223,623,42,5,554,3634];
+print lifeUniverseAndEverything(s)
+```
