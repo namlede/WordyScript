@@ -47,7 +47,7 @@ app.get('/', function(req, res) {
 
 io.sockets.on('connection', function (socket) {
   socket.on('url', function (data) {
-   console.log(data);
+   console.log('hiii');
 console.log(hashCode(data.url).toString());
 storage.setItem(hashCode(data.url).toString(),data.url);
 console.log(storage.getItem(hashCode(data.url).toString()));

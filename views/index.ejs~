@@ -49,7 +49,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">WordyScript</a>
+          <a class="navbar-brand" href="/"><img src="images/logo.png"></a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -121,7 +121,6 @@
 	
         output = OutputStream(output_opts)
         rapydscript_string += '\n'; //just to be safe
-        alert(rapydscript_string);
         try {
           TOPLEVEL = parse(rapydscript_string, rs_options);
           TOPLEVEL.print(output);
@@ -159,8 +158,8 @@
       }
       function geturl(){
         var socket = io.connect('http://wordyscript.com');//fix this later I assume
-    	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
-        bootstrap_alert.warning("http://wordyscript.com/"+hashCode(editor.getValue()));
+    	  socket.emit('url', { url: escape(editor.getValue()) });//make it so they can't save infinite amounts to our server
+        bootstrap_alert.warning("http://wordyscript.com/"+hashCode(escape(editor.getValue())));
       }
     
       function changeButton() {
