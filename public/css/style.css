@@ -57,5 +57,7 @@ a {
 }
 
 #alert-placeholder{
-	width: 400px;
+	display: inline-block;
+	position: absolute;
+	right: 20px;
 }

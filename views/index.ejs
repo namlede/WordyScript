@@ -142,7 +142,7 @@
       function geturl(){
         var socket = io.connect('http://localhost');//fix this later I assume
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
-        bootstrap_alert.warning("http://localhost:3000/"+hashCode(editor.getValue()));
+        bootstrap_alert.warning("http://wordyscript.heroku.com/"+hashCode(editor.getValue()));
       }
       editor.onkeydown= function() {
         clearTimeout(timeout);
