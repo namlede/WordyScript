@@ -10,6 +10,10 @@ Compile pseuducode to JavaScript on the web!
 
 Programmers:
 Jacob Edelman, Ben Edelman, Alok Tripathy, Aaron Berger
+
+Sample Code
+------------
+Factorial:
 ```python
 define a new function factorial of n
 	if n equals 0
@@ -17,6 +21,7 @@ define a new function factorial of n
 	return n times factorial of (n-1)
 print(factorial of 4)
 ```
+Fibonacci:
 ```python
 new function fibonacci of n
 	i=0
