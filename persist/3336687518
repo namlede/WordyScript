@@ -1,0 +1,1 @@
+"define fibonacci of number\n\tif the number is 0 or the number is 1\n\t\treturn 1\n\telse\n\t\tset a to fibonacci of number minus 1\n\t\tset b to fibonacci of number minus 2\n\t\treturn a plus b"

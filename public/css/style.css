@@ -53,5 +53,9 @@ a {
 
 #console p {
 	display: block;
-	font: 18px "Courier New", Courier, monospace; 	
+	font: 18px "Lucida Sans Mono", monospace; 	
+}
+
+#alert-placeholder{
+	width: 400px;
 }
