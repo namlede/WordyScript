@@ -85,7 +85,7 @@ factorial(5 plus 6) - 266</textarea>
         autofocus: true,
         tabSize: 4,
         indentUnit: 4,
-        indentWithTabs: true,
+        indentWithTabs: true
       });
       var preview = CodeMirror.fromTextArea(document.getElementById('preview'), {
         mode: 'text/javascript',
@@ -93,12 +93,7 @@ factorial(5 plus 6) - 266</textarea>
         theme: 'default',
         readOnly: true
       });
-
-      editor.on("change", function() {
-        clearTimeout(delay);
-        delay = setTimeout(function(){updatePreview(false);}, 500);
-      });
-
+      
       //RapydScript options
       var rs_options = {
         "filename":"demo",
