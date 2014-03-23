@@ -1,7 +1,7 @@
 WordyScript Compiler
 =========
 
-Compile pseuducode to JavaScript on the web!
+Compile pseudocode to JavaScript on the web!
 -------------------------------
 
 <p>WordyScript is a free educational tool that allows users who are unfarmiliar with JavaScript or with programming in general to write pseudocode that will compile to JavaScript.  With its intuitive, freeform, Python-like syntax and real-time compiling, WordyScript allows users to see a side-by-side comparison of how their code looks versus how the actual JavaScript would read, enabling them to learn JavaScript while coding.</p>
