@@ -35,8 +35,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				var stmt=a[i].match(/\sloop\s(.*)\S/)[0];
-				var bit=a[i].match(/\sloop\s/).index+1;
-				stmt2=stmt.substring(bit);
+				stmt2=stmt.substring(6);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
 			}
@@ -46,8 +45,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				var stmt=a[i].match(/\sfor\s(.*)\S/)[0];
-				var bit=a[i].match(/\sfor\s/).index+1;
-				stmt2=stmt.substring(bit);
+				stmt2=stmt.substring(5);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for "+args+":");
 			}
@@ -60,8 +58,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				var stmt=a[i].match(/\suntil\s(.*)\S/)[0];
-				var bit=a[i].match(/\suntil\s/).index+1;
-				stmt=stmt2.substring(bit);
+				stmt2=stmt.substring(7);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"while not ("+args+"):");
 			}
@@ -74,8 +71,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				var stmt=a[i].match(/\swhile\s(.*)\S/)[0];
-				var bit=a[i].match(/\swhile\s/).index+1;
-				stmt2=stmt.substring(bit);
+				stmt2=stmt.substring(7);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"while ("+args+"):");
 			}
@@ -88,9 +84,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				var stmt=a[i].match(/\sif\s(.*)\S/)[0];
-                
-				var bit=a[i].match(/\sif\s/).index+1;
-				stmt2=stmt.substring(bit);
+				stmt2=stmt.substring(4);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
 			}
