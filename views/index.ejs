@@ -127,13 +127,25 @@
         }
       }
       
+      
       var timeout;
-      editor.onkeyup=function() {
+      
+      alert("here1");
+      window.addEventListener("keyup", keyedUp, false);
+      window.addEventListener("keydown", keyedDown, false);
+      
+      function keyedUp() {
+        //alert("here2");
         document.getElementById('compileit').value = "Compiling"
         timeout = setTimeout(updatePreview, 500);
         timeout = setTimeout(changeButton, 500);
-        
       }
+      
+      function keyedDown() {
+        //alert("here3");
+        clearTimeout(timeout);
+      }
+      
       function hashCode(s){
         var a=(s.toString().split("")).reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);   
         if(a<0)return(-2*a-1);
@@ -144,10 +156,7 @@
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
         bootstrap_alert.warning("http://wordyscript.heroku.com/"+hashCode(editor.getValue()));
       }
-      editor.onkeydown= function() {
-        clearTimeout(timeout);
-      }
-     
+    
       function changeButton() {
         document.getElementById('compileit').value = "Compiled"
       }
