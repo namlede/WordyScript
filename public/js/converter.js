@@ -40,6 +40,16 @@ function replacer(a){
 				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
 			}
 		}
+		if(a[i].match(/\srepeat\s/)){
+			var stmt=a[i].match(/\srepeat\s(.*)\S/);
+			if(stmt){
+				stmt=stmt[0];
+				var stmt=a[i].match(/\sloop\s(.*)\S/)[0];
+				stmt2=stmt.substring(6);
+				var args=stmt2.replace(":","");
+				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
+			}
+		}
 		if(a[i].match(/\sfor\s/)){
 			var stmt=a[i].match(/\sfor\s(.*)\S/);
 			if(stmt){
@@ -89,7 +99,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
 			}
 		}
-		tempa+=a[i].substring(1)+"\n";
+		tempa+=a[i].substring(2)+"\n";
 	}
 	
 	a = tempa;
