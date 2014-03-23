@@ -59,7 +59,7 @@ function replacer(a){
 			var stmt=a[i].match(/\srepeat\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				stmt2=stmt.substring(6);
+				stmt2=stmt.substring(8);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
 			}

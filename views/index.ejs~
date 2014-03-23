@@ -138,8 +138,8 @@
 	}
       function giveurl(){
 	  var socket = io.connect('http://localhost');//fix this later I assume
-    	  socket.emit('url', { url: ($('#code').text()).toString() });
-	  alert("http://localhost:3000/"+hashCode(($('#code').text()).toString()));
+    	  socket.emit('url', { url: editor.getValue() });
+	  alert("http://localhost:3000/"+hashCode(editor.getValue()));
 	
       }
       editor.on('keydown', function() {
