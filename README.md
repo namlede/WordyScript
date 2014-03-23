@@ -1,12 +1,38 @@
-WordyScript Compiler
+WordyScript
 =========
 
-Compile pseuducode to JavaScript on the web!
+Compile pseudocode to JavaScript on the web!
 -------------------------------
 
-<p>WordyScript is a free educational tool which allows users who are unfarmiliar with JavaScript or with programming in general to write pseudocode that will compile to JavaScript.  With its intuitive, freeform syntax and real-time compiling, WordyScript allows users to see a side-by-side comparison of how their code looks versus how the actual JavaScript would read, enabling them to learn JavaScript while coding.</p>
+<p>WordyScript is a free educational tool that allows users who are unfamiliar with JavaScript or with programming in general to write pseudocode that will compile to JavaScript.  With its intuitive, freeform, Python-like syntax and real-time compiling, WordyScript allows users to see a side-by-side comparison of how their code looks versus how the actual JavaScript would read, enabling them to learn JavaScript while coding.</p>
 
-<p>WordyScript works by parsing the pseudocode input into Python code readable by the computer using our own original code, and then converting the Python code into JavaScript using <a href=http://rapydscript.pyjeon.com/>RapydScript</a> which can then be run with a simple eval.  The website enables the user to edit text to use as code in-browser trough the use of <a href=http://codemirror.net/>CodeMirror</a> The back-end was made in <a href="nodejs.org">Node.js</a></p> 
+<p>WordyScript works by parsing the pseudocode input into Python code, and then converting the Python code into JavaScript using <a href=http://rapydscript.pyjeon.com/>RapydScript</a> which can then be run with a simple eval.  The website enables the user to edit text to use as code in-browser trough the use of <a href=http://codemirror.net/>CodeMirror</a> The back-end was made in <a href="nodejs.org">Node.js</a>.</p>
 
 Programmers:
 Jacob Edelman, Ben Edelman, Alok Tripathy, Aaron Berger
+
+Sample Code
+------------
+Factorial:
+```python
+define a new function factorial of n
+	if n equals 0
+		return 1
+	return n times factorial of (n-1)
+print(factorial of 4)
+```
+Fibonacci:
+```python
+new function fibonacci of n
+	i=0
+	a=0
+	b=1
+	temp=0
+	as long as i is less than n
+		increase i by 1
+		temp=a+b
+		a=b
+		b=temp
+	return b
+print (fibonacci of 11)
+```
