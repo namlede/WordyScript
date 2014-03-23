@@ -118,6 +118,7 @@
 
       function updatePreview(from_error) {
         var rapydscript_string = change(editor.getValue());
+	
         output = OutputStream(output_opts)
         rapydscript_string += '\n'; //just to be safe
         try {
