@@ -23,6 +23,7 @@
     <!-- Rapydscript stuff -->
     <link rel=stylesheet href=rapyd/codemirror/lib/codemirror.css>
     <script src=rapyd/codemirror/lib/codemirror.js></script>
+    <script src=rapyd/rapydscript/lib/baselib.js></script>
     <script src=rapyd/codemirror/mode/python/python.js></script>
     <script src=rapyd/codemirror/mode/javascript/javascript.js></script>
     <script type="text/javascript" src="rapyd/rapydscript/lib/utils.js"></script>
@@ -152,12 +153,16 @@
       $('#compileit').click(function(){
         updatePreview();
       });
-      
-      $('#runit').click(function(){
-        var result = eval(js);
-        $('#console').append('<p>' + result + '</p>');
+      (function(){
+    var oldLog = console.log;
+    console.log = function (message) {
+         $('#console').append('<p>' + message + '</p>');
         $("#console").scrollTop($("#console")[0].scrollHeight);
-      });
+        //oldLog.apply(console, arguments);
+  };
+})();
+      $('#runit').click(function(){
+        eval(js);
     </script>
   </body>
 </html>
