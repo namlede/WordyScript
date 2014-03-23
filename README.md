@@ -18,21 +18,21 @@ Factorial:
 define a new function factorial of n
 	if n equals 0
 		return 1
-	return n times factorial of (n-1)
+	return n times factorial of (n minus 1)
 print(factorial of 4)
 ```
 Fibonacci:
 ```python
 new function fibonacci of n
-	i=0
-	a=0
-	b=1
-	temp=0
-	as long as i is less than n
-		increase i by 1
-		temp=a+b
-		a=b
-		b=temp
-	return b
+    i equals 0
+    a equals 0
+    b equals 1
+    temp equals 0
+    as long as i is less than n
+        increase i by 1
+        temp equals (a plus b)
+        a equals b
+        b equals temp
+    return b
 print (fibonacci of 11)
 ```
