@@ -108,20 +108,20 @@ function replacer(a){
 		}
 		
 		if (a[i].match(/increase /) && a[i].match(/ by /)) {
-			a[i].replace(/increase/,"")
-			a[i].replace("by","+=")
+			a[i].replace(/increase/,"");
+			a[i].replace("by","+=");
 		}
 		if (a[i].match(/decrease /) && a[i].match(/ by /)) {
-			a[i].replace(/decrease/,"")
-			a[i].replace("by","-=")
+			a[i].replace(/decrease/,"");
+			a[i].replace("by","-=");
 		}
 		if (a[i].match(/multiply /) && a[i].match(/ by /)) {
-			a[i].replace(/multiply/,"")
-			a[i].replace("by","*=")
+			a[i].replace(/multiply/,"");
+			a[i].replace("by","*=");
 		}
 		if (a[i].match(/divide /) && a[i].match(/ by /)) {
-			a[i].replace(/divide/,"")
-			a[i].replace("by","/=")
+			a[i].replace(/divide/,"");
+			a[i].replace("by","/=");
 		}
 		
 		
