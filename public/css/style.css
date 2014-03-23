@@ -48,7 +48,7 @@ a {
 #console {
 	margin-left: 5px;
 	overflow-y: auto;
-	height: 200px;
+	height: 100px;
 }
 
 #console p {
