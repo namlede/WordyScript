@@ -31,6 +31,12 @@ function replacer(a){
 	a=a.replace(/new function /g, "def ");
 	a=a.replace(/function /g, "def ");
 	
+	a=a.replace(/ raised to the power of /g, "^^");
+	a=a.replace(/ to the power of /g, "^^");
+	a=a.replace(/ to the /g, "^^");
+	a=a.replace(/ cubed/g, "^^3");
+	a=a.replace(/ squared/g, "^^2");
+	
     a =a.replace(/ equals /g, "==");
 
 	a =a.replace(/ to /g, "=");
@@ -125,6 +131,14 @@ function replacer(a){
 			a[i]=a[i].replace("by","/=");
 		}
 		
+		if (a[i].match("^^")) {
+			var loc=a[i].indexOf("^^");
+			var space1=a[i].substring(0,loc).lastIndexOf(" ");
+			var space2=a[i].substring(loc).indexOf(" ");
+			
+			a[i]=a[i].substring(0,space1)+" Math.pow("+a[i].substring(space1,loc)+","+a[i].substring(loc+2,space2)+")"+a[i].substring(space2);
+				
+		}
 		
 		if(a[i].match(/\sof\s/)){
 			var stmt=a[i].match(/\sof\s\(/);
