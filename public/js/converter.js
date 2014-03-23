@@ -31,11 +31,11 @@ function replacer(a){
 	a=a.replace(/new function /g, "def ");
 	a=a.replace(/function /g, "def ");
 	
-//	a=a.replace(/ raised to the power of /g, "^^");
-//	a=a.replace(/ to the power of /g, "^^");
-//	a=a.replace(/ to the /g, "^^");
-//	a=a.replace(/ cubed/g, "^^3");
-//	a=a.replace(/ squared/g, "^^2");
+	a=a.replace(/ raised to the power of /g, "^^");
+	a=a.replace(/ to the power of /g, "^^");
+	a=a.replace(/ to the /g, "^^");
+	a=a.replace(/ cubed/g, "^^3");
+	a=a.replace(/ squared/g, "^^2");
 	
     a =a.replace(/ equals /g, "==");
 
