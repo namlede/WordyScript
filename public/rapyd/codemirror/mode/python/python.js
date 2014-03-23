@@ -17,7 +17,7 @@ CodeMirror.defineMode("python", function(conf, parserConf) {
                           'def', 'del', 'elif', 'else', 'except', 'finally',
                           'for', 'from', 'global', 'if', 'import',
                           'lambda', 'pass', 'raise', 'return',
-                          'try', 'while', 'with', 'yield','until','loop','repeat','equals','equal','let','set','to','as long as','less','then','greater','is','cubed','plus','power','the','minus','divided','of','least','most','at','be','define','function','func'];
+                          'try', 'while', 'with', 'yield','until','loop','repeat','equals','equal','let','set','to','as long as','less','than','greater','is','cubed','plus','power','the','minus','divided','of','least','most','at','be','define','function','func'];
     var commonBuiltins = ['abs', 'all', 'any', 'bin', 'bool', 'bytearray', 'callable', 'chr',
                           'classmethod', 'compile', 'complex', 'delattr', 'dict', 'dir', 'divmod',
                           'enumerate', 'eval', 'filter', 'float', 'format', 'frozenset',
