@@ -68,7 +68,7 @@ function replacer(a){
 			}
 		}
 		if(a[i].match(/\suntil\s/)){
-                        if(a[i].match(/[^=]=[^=]/)){
+                        if(a[i].match(/[^=!]=[^=]/)){
 				a[i].replace("=","==");
 			}
 			var stmt=a[i].match(/\suntil\s(.*)\S/);
@@ -80,7 +80,7 @@ function replacer(a){
 			}
 		}
 		if(a[i].match(/\swhile\s/)){
-                        if(a[i].match(/[^=]=[^=]/)){
+                        if(a[i].match(/[^=!]=[^=]/)){
 				a[i].replace("=","==");
 			}
 			var stmt=a[i].match(/\swhile\s(.*)\S/);
@@ -92,7 +92,7 @@ function replacer(a){
 			}
 		}
 		if(a[i].match(/\sif\s/)){
-                        if(a[i].match(/[^=]=[^=]/)){
+                        if(a[i].match(/[^=!]=[^=]/)){
 				a[i]=a[i].replace("=","==");
 			}
 			var stmt=a[i].match(/\sif\s(.*)\S/);
