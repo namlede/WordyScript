@@ -105,28 +105,22 @@ function replacer(a){
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
 			}
 		}
-		if(a[i].match(/[\s^]set\s/)){
-			var stmt=a[i].match(/[\s^]set\s/);
+		if(a[i].match(/\sset\s/)){
+			var stmt=a[i].match(/\sset\s/);
 			if(stmt){
 				stmt=stmt[0];
-				stmt2=stmt.substring(1,4);
+				stmt2=stmt.substring(1,5);
 				a[i]=a[i].replace(stmt2,"");
 			}
 		}
-		if(a[i].match(/[\s^]let\s/)){
-			var stmt=a[i].match(/[\s^]let\s/);
+		if(a[i].match(/\slet\s/)){
+			var stmt=a[i].match(/\slet\s/);
 			if(stmt){
 				stmt=stmt[0];
-				stmt2=stmt.substring(1,4);
+				stmt2=stmt.substring(1,5);
+				console.log('"'+a[i]+'"');
 				a[i]=a[i].replace(stmt2,"");
-			}
-		}
-		if(a[i].match(/[\s^]change\s/)){
-			var stmt=a[i].match(/[\s^]change\s/);
-			if(stmt){
-				stmt=stmt[0];
-				stmt2=stmt.substring(1,7);
-				a[i]=a[i].replace(stmt2,"");
+				console.log('"'+a[i]+'"');
 			}
 		}
 		if(a[i].match(/\sdef\s/)){
