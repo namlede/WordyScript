@@ -5,12 +5,6 @@ function replacer(a){
 	a = a.replace(/ times /g," * ");
 	a = a.replace(/ divided by /g," / ");
 	a = a.replace(/as long as /g,"while ");
-	a = a.replace(/\sset /g,"");//does not work
-	a =a.replace(/\slet /g, "");//does not work, add in later 
-	a =a.replace(/^change /g, "");//does not work
-	a = a.replace(/^set /g,"");//does not work
-	a =a.replace(/^let /g, "");//does not work, add in later 
-	a =a.replace(/^change /g, "");//does not work
 	a =a.replace(/as long as /g, "\nwhile ");
 
 	a =a.replace(/ is in /g, " in ");
@@ -32,8 +26,7 @@ function replacer(a){
 	a=a.replace(/define function /g, "def ");
 	a=a.replace(/define /g, "def ");
 	a=a.replace(/new function /g, "def ");
-	a=a.replace(/\sfunction /g, "def ");
-	a=a.replace(/^function /g, "def ");
+	a=a.replace(/function /g, "def ");
 	a=a.replace(/ raised to the power of /g, "^^");
 	a=a.replace(/ to the power of /g, "^^");
 	a=a.replace(/ to the /g, "^^");
@@ -110,6 +103,30 @@ function replacer(a){
 				stmt2=stmt.substring(4);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
+			}
+		}
+		if(a[i].match(/[\s^]set\s/)){
+			var stmt=a[i].match(/[\s^]set\s/);
+			if(stmt){
+				stmt=stmt[0];
+				stmt2=stmt.substring(1,4);
+				a[i]=a[i].replace(stmt2,"");
+			}
+		}
+		if(a[i].match(/[\s^]let\s/)){
+			var stmt=a[i].match(/[\s^]let\s/);
+			if(stmt){
+				stmt=stmt[0];
+				stmt2=stmt.substring(1,4);
+				a[i]=a[i].replace(stmt2,"");
+			}
+		}
+		if(a[i].match(/[\s^]change\s/)){
+			var stmt=a[i].match(/[\s^]change\s/);
+			if(stmt){
+				stmt=stmt[0];
+				stmt2=stmt.substring(1,7);
+				a[i]=a[i].replace(stmt2,"");
 			}
 		}
 		if(a[i].match(/\sdef\s/)){
