@@ -7,7 +7,10 @@ function replacer(a){
 	a = a.replace(/as long as /g,"while ");
 	a = a.replace(/\sset /g,"");//does not work
 	a =a.replace(/\slet /g, "");//does not work, add in later 
-	a =a.replace(/\schange /g, "");//does not work
+	a =a.replace(/^change /g, "");//does not work
+	a = a.replace(/^set /g,"");//does not work
+	a =a.replace(/^let /g, "");//does not work, add in later 
+	a =a.replace(/^change /g, "");//does not work
 	a =a.replace(/as long as /g, "\nwhile ");
 
 	a =a.replace(/ is in /g, " in ");
@@ -29,8 +32,8 @@ function replacer(a){
 	a=a.replace(/define function /g, "def ");
 	a=a.replace(/define /g, "def ");
 	a=a.replace(/new function /g, "def ");
-	a=a.replace(/function /g, "def ");
-	
+	a=a.replace(/\sfunction /g, "def ");
+	a=a.replace(/^function /g, "def ");
 	a=a.replace(/ raised to the power of /g, "^^");
 	a=a.replace(/ to the power of /g, "^^");
 	a=a.replace(/ to the /g, "^^");
