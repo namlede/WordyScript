@@ -40,7 +40,7 @@ app.get('/:id', function(req, res) {
   res.render('index.ejs',{start:storage.getItem(req.params.id)});
 });
 app.get('/', function(req, res) {
-  res.render('index.ejs',{ start : "print('hello world')" });
+  res.render('index.ejs',{ start : "print 'hello world'" });
 });
 
 
