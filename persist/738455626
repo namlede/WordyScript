@@ -1,0 +1,1 @@
+"define fibonacci of number\n\tif number is 0 or number is equal to 1\n\t\treturn 1\n\telse:\n\t\ta = fibonacci of (number - 1)\n\t\tb = fibonacci of (number - 2)"
