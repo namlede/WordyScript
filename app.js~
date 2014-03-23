@@ -41,7 +41,7 @@ app.get('/:id', function(req, res) {
   if(temp){
   res.render('index.ejs',{start:temp});
 	}else{
-		res.render('index.ejs',{start:"File Not Found"});
+		res.render('index.ejs',{start:"File_Not_Found"});
   	}
 });
 app.get('/', function(req, res) {
@@ -52,7 +52,6 @@ app.get('/', function(req, res) {
 
 io.sockets.on('connection', function (socket) {
   socket.on('url', function (data) {
-   console.log('hiii');
 console.log(hashCode(data.url).toString());
 storage.setItem(hashCode(data.url).toString(),data.url);
 console.log(storage.getItem(hashCode(data.url).toString()));
