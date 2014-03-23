@@ -9,8 +9,9 @@
     <link rel="shortcut icon" href="../../assets/ico/favicon.ico">
     <title>Pseudocode Compiler</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel='stylesheet' href='/css/style.css' />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    
 
     <!-- Custom styles for this template -->
 
@@ -20,31 +21,10 @@
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
     <!-- Rapydscript stuff -->
+    <link rel=stylesheet href=rapyd/codemirror/lib/codemirror.css>
     <script src=rapyd/codemirror/lib/codemirror.js></script>
     <script src=rapyd/codemirror/mode/python/python.js></script>
     <script src=rapyd/codemirror/mode/javascript/javascript.js></script>
-    <link rel=stylesheet href=rapyd/codemirror/lib/codemirror.css>
-    <style type=text/css>
-      .CodeMirror {
-        border: 1px solid black;
-        height: 100%;
-        width: 49.5%;
-        float: left;
-      }
-      .cm-s-output {
-        border-left: 1px;
-      }
-      .page {
-        position: absolute;
-        top: 50px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-      }
-      .fl {
-        float: left;
-      }
-    </style>
     <script type="text/javascript" src="rapyd/rapydscript/lib/utils.js"></script>
     <script type="text/javascript" src="rapyd/rapydscript/lib/ast.js"></script>
     <script type="text/javascript" src="rapyd/rapydscript/lib/baselib.js"></script>
@@ -72,8 +52,10 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-    
-    <div class="page">
+    <div class="row button-row">
+      <input type="button" class="btn btn-lg btn-primary" id="compileit" value="Compile to Javascript">
+    </div>
+    <div class="row" id="textareas">
       <textarea id=code name=code>
 def factorial(n):
   if n == 0:
@@ -82,10 +64,18 @@ def factorial(n):
       </textarea>
       <textarea class=output id=preview></textarea>
     </div>
-
+    <div class="row button-row">
+      <input type="button" class="btn btn-lg btn-primary" id="runit" value="Run Javascript">
+    </div>
+    <div class "row">
+      <div id='console-wrapper'>
+        <div id='console'></div>
+      </div>
+    </div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <script>
-      var delay;
-      // Initialize CodeMirror editor with a nice html5 canvas demo.
+      var js = '';
       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
         mode: 'text',
         indentUnit: 4,
@@ -95,8 +85,8 @@ def factorial(n):
       var preview = CodeMirror.fromTextArea(document.getElementById('preview'), {
         mode: 'text/javascript',
         lineNumbers: true,
-        theme: "default output",
-        //readOnly: true
+        theme: 'default',
+        readOnly: true
       });
 
       editor.on("change", function() {
@@ -124,20 +114,24 @@ def factorial(n):
         try {
           TOPLEVEL = parse(rapydscript_string, rs_options);
           TOPLEVEL.print(output);
-          preview.setValue(String(output) + '\n');
+          js = String(output);
+          preview.setValue(js + '\n');
         } catch(err) {
           if (from_error) {
               preview.setValue("ERROR: " + err.message + ". Line " + err.line + ", column " + err.col + ".");
-          } else {
-            clearTimeout(delay);
-            delay = setTimeout(function(){updatePreview(true);}, 2000);
           }
         }
       }
-
-      updatePreview();
+      
+      $('#compileit').click(function(){
+        updatePreview();
+      });
+      
+      $('#runit').click(function(){
+        var result = eval(js);
+        $('#console').append('<p>' + result + '</p>');
+        $("#console").scrollTop($("#console")[0].scrollHeight);
+      });
     </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
   </body>
 </html>

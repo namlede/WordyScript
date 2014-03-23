@@ -11,3 +11,47 @@ a {
   padding: 40px 15px;
   text-align: center;
 }
+
+.CodeMirror {
+	border: 1px solid black;
+	height: 100%;
+	width: 49.5%;
+	float: left;
+}
+
+.cm-s-output {
+	border-left: 1px;
+}
+
+.page {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.fl {
+	float: left;
+}
+
+.button-row{
+	text-align:center;
+	margin: 10px;
+}
+
+#console-wrapper {
+	background-color: black;
+	color: white;
+}
+
+#console {
+	margin-left: 5px;
+	overflow-y: auto;
+	height: 200px;
+}
+
+#console p {
+	display: block;
+	font: 18px "Courier New", Courier, monospace; 	
+}
