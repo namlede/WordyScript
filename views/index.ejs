@@ -55,7 +55,7 @@
     </div>
     <div class="row button-row">
       <input type="button" class="btn btn-lg btn-primary" id="compileit" value="Compiled">
-      <input type="button" class="btn btn-lg btn-primary" onclick="giveurl()" value="Give Url">
+      <input type="button" class="btn btn-lg btn-primary" onclick="geturl()" value="Get Url">
     </div>
     <div class="row" id="textareas">
       <textarea id=code name=code > <%= start %>
@@ -136,7 +136,7 @@
 	  if(a<0)return(-2*a-1);
 	  return(2*a);           
 	}
-      function giveurl(){
+      function geturl(){
 	  var socket = io.connect('http://localhost');//fix this later I assume
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
 	  alert("http://localhost:3000/"+hashCode(editor.getValue()));
