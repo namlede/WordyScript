@@ -19,9 +19,9 @@ function replacer(a){
 	a =a.replace(/ is greater than /g, ">");
 	
 	a =a.replace(/ is less than /g, "<");
-	a =a.replace(/ is true/g, " == true");
-	a =a.replace(/ is false/g, "== false");
-	a =a.replace(/ equal to /g, "==");
+	a =a.replace(/ is true/g, " = true");
+	a =a.replace(/ is false/g, "= false");
+	a =a.replace(/ equal to /g, "=");
 	
 	
 	a=a.replace(/define a new function /g, "def ");
@@ -37,7 +37,7 @@ function replacer(a){
 	a=a.replace(/ cubed/g, "^^3");
 	a=a.replace(/ squared/g, "^^2");
 	
-    a =a.replace(/ equals /g, "==");
+    a =a.replace(/ equals /g, "=");
 
 	a =a.replace(/ to /g, "=");
     

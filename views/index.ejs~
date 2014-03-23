@@ -57,6 +57,7 @@
     <div class="row button-row">
       <input type="button" class="btn btn-lg btn-primary" id="compileit" value="Compiled">
       <input type="button" class="btn btn-lg btn-primary" onclick="geturl()" value="Get Url">
+      <div id="alert-placeholder"></div>
     </div>
     <div class="row" id="textareas">
       <textarea id=code name=code > <%= start %>
@@ -77,6 +78,10 @@
     <script src="js/converter.js"></script>
     <script>
       var js = '';
+      bootstrap_alert = function() {}
+      bootstrap_alert.warning = function(message) {
+        $('#alert-placeholder').html('<div class="alert alert-info alert-dismissable fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
+      }
       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
         mode: 'text',
         indentUnit: 4,
@@ -123,29 +128,25 @@
       }
       
       var timeout;
-            document.getElementById('compileit').value = "Compiling"
-        timeout = setTimeout(updatePreview, 500);
-        timeout = setTimeout(changeButton, 500);
-      editor.on('keyup', function() {
+      editor.onkeyup=function() {
         document.getElementById('compileit').value = "Compiling"
         timeout = setTimeout(updatePreview, 500);
         timeout = setTimeout(changeButton, 500);
         
-      });
-      function hashCode(s){
-	  var a=(s.toString().split("")).reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);   
-	  if(a<0)return(-2*a-1);
-	  return(2*a);           
-	}
-      function geturl(){
-	  var socket = io.connect('http://localhost');//fix this later I assume
-    	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
-	  alert("http://localhost:3000/"+hashCode(editor.getValue()));
-	
       }
-      editor.on('keydown', function() {
+      function hashCode(s){
+        var a=(s.toString().split("")).reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);   
+        if(a<0)return(-2*a-1);
+          return(2*a);           
+      }
+      function geturl(){
+        var socket = io.connect('http://localhost');//fix this later I assume
+    	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
+        bootstrap_alert.warning("http://localhost:3000/"+hashCode(editor.getValue()));
+      }
+      editor.onkeydown= function() {
         clearTimeout(timeout);
-      });
+      }
      
       function changeButton() {
         document.getElementById('compileit').value = "Compiled"

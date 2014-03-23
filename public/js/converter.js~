@@ -21,7 +21,7 @@ function replacer(a){
 	a =a.replace(/ is less than /g, "<");
 	a =a.replace(/ is true/g, " == true");
 	a =a.replace(/ is false/g, "== false");
-	a =a.replace(/ equal to /g, "==");
+	a =a.replace(/ equal to /g, "=");
 	
 	
 	a=a.replace(/define a new function /g, "def ");
@@ -37,7 +37,7 @@ function replacer(a){
 	a=a.replace(/ cubed/g, "^^3");
 	a=a.replace(/ squared/g, "^^2");
 	
-    a =a.replace(/ equals /g, "==");
+    a =a.replace(/ equals /g, "=");
 
 	a =a.replace(/ to /g, "=");
     
@@ -160,19 +160,6 @@ function replacer(a){
 				if(stmt){
 					stmt=stmt[0];
 					a[i]=a[i].replace(stmt,"("+stmt.substring(4)+")");
-				}
-			}
-		}
-		if(a[i].match(/\sprint\s/)){
-			var stmt=a[i].match(/\sprint\s\(/);
-			if(stmt){
-				stmt=stmt[0];
-				a[i]=a[i].replace(stmt,stmt.substring(7));
-			}else{
-				stmt=a[i].match(/\sprint\s\S+/);
-				if(stmt){
-					stmt=stmt[0];
-					a[i]=a[i].replace(stmt,"("+stmt.substring(7)+")");
 				}
 			}
 		}

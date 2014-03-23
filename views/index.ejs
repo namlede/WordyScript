@@ -128,15 +128,12 @@
       }
       
       var timeout;
-            document.getElementById('compileit').value = "Compiling"
-        timeout = setTimeout(updatePreview, 500);
-        timeout = setTimeout(changeButton, 500);
-      editor.on('keyup', function() {
+      editor.onkeyup=function() {
         document.getElementById('compileit').value = "Compiling"
         timeout = setTimeout(updatePreview, 500);
         timeout = setTimeout(changeButton, 500);
         
-      });
+      }
       function hashCode(s){
         var a=(s.toString().split("")).reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);   
         if(a<0)return(-2*a-1);
@@ -147,9 +144,9 @@
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
         bootstrap_alert.warning("http://localhost:3000/"+hashCode(editor.getValue()));
       }
-      editor.on('keydown', function() {
+      editor.onkeydown= function() {
         clearTimeout(timeout);
-      });
+      }
      
       function changeButton() {
         document.getElementById('compileit').value = "Compiled"
