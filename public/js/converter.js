@@ -22,6 +22,12 @@ function replacer(a){
 	a =a.replace(/ is false/g, "== false");
 	a =a.replace(/ equal to /g, "==");
 	
+	
+	a=a.replace(/define a new function /g, "def ");
+	a=a.replace(/define new function /g, "def ");
+	a=a.replace(/define function /g, "def ");
+	a=a.replace(/define /g, "def ");
+	
     a =a.replace(/ equals /g, "==");
 
 	a =a.replace(/ to /g, "=");
