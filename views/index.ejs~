@@ -54,7 +54,7 @@
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="/">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="https://github.com/namlede/encompile">About</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -157,9 +157,9 @@
           return(2*a);           
       }
       function geturl(){
-        var socket = io.connect('http://wordyscript.com');//fix this later I assume
-    	  socket.emit('url', { url: escape(editor.getValue()) });//make it so they can't save infinite amounts to our server
-        bootstrap_alert.warning("http://wordyscript.com/"+hashCode(escape(editor.getValue())));
+        var socket = io.connect('http://www.wordyscript.com');//fix this later I assume
+    	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
+        bootstrap_alert.warning("http://www.wordyscript.com/"+hashCode(editor.getValue()));
       }
     
       function changeButton() {

@@ -138,7 +138,9 @@
 
       window.addEventListener("keyup", keyedUp, false);
       window.addEventListener("keydown", keyedDown, false);
-      
+      document.getElementById('compileit').value = "Compiling"
+      timeout = setTimeout(updatePreview, 1000);
+      timeout = setTimeout(changeButton, 1000);
       function keyedUp() {
         //alert("here2");
         document.getElementById('compileit').value = "Compiling"
