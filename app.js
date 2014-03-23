@@ -37,7 +37,12 @@ hashCode = function(s){
   return(2*a);           
 }
 app.get('/:id', function(req, res) {
-  res.render('index.ejs',{start:storage.getItem(req.params.id)});
+  var temp=storage.getItem(req.params.id);
+  if(temp){
+  res.render('index.ejs',{start:temp});
+	}else{
+		res.render('index.ejs',{start:"File_Not_Found"});
+  	}
 });
 app.get('/', function(req, res) {
   res.render('index.ejs',{ start : "print (10 times 17)" });
