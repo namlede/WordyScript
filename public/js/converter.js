@@ -131,7 +131,7 @@ function replacer(a){
 			a[i]=a[i].replace("by","/=");
 		}
 		
-		if (a[i].match("^^")) {
+		if (a[i].match(/\^\^/)) {
 			var loc=a[i].indexOf("^^");
 			var space1=a[i].substring(0,loc).lastIndexOf(" ");
 			var space2=loc+a[i].substring(loc).indexOf(" ");
@@ -142,6 +142,7 @@ function replacer(a){
 			var string4=a[i].substring(space2+2);
 
 			var s=(""+string1+" Math.pow("+string2+","+string3+")"+string4);
+			a[i]=s;
 //			a[i]=a[i].substring(0,space1+1)+" Math.pow("+a[i].substring(space1+1,loc)+","+a[i].substring(loc+2,space2+2)+")"+a[i].substring(space2+2);
 		}
 		
