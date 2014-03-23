@@ -63,3 +63,7 @@ a {
 	position: absolute;
 	right: 20px;
 }
+
+.fixed{
+	width: 100px;
+}
