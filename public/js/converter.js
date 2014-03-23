@@ -101,7 +101,7 @@ function replacer(a){
 			}
 		}
 		if(a[i].match(/\sdef\s/)){
-			if (!a[i].match(";"))
+			if (!a[i].match(":"))
 				a[i]+=" :";
 		}
 		if(a[i].match(/\sof\s/)){
