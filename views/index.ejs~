@@ -117,7 +117,7 @@
       };
 
       function updatePreview(from_error) {
-        var rapydscript_string = change(editor.getValue());
+        var rapydscript_string = change(editor.getValue().replace(/"/g,"'"));
 	
         output = OutputStream(output_opts)
         rapydscript_string += '\n'; //just to be safe
