@@ -1,4 +1,4 @@
-WordyScript Compiler
+WordyScript
 =========
 
 Compile pseudocode to JavaScript on the web!
