@@ -21,6 +21,7 @@ function replacer(a){
 	a =a.replace(/ is true/g, " == true");
 	a =a.replace(/ is false/g, "== false");
 	a =a.replace(/ equal to /g, "==");
+	
     a =a.replace(/ equals /g, "==");
 
 	a =a.replace(/ to /g, "=");
@@ -34,7 +35,6 @@ function replacer(a){
 			var stmt=a[i].match(/\sloop\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\sloop\s(.*)\S/)[0];
 				stmt2=stmt.substring(6);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
@@ -44,7 +44,6 @@ function replacer(a){
 			var stmt=a[i].match(/\srepeat\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\sloop\s(.*)\S/)[0];
 				stmt2=stmt.substring(6);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for iiii in range("+args+"):");
@@ -54,7 +53,6 @@ function replacer(a){
 			var stmt=a[i].match(/\sfor\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\sfor\s(.*)\S/)[0];
 				stmt2=stmt.substring(5);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"for "+args+":");
@@ -67,7 +65,6 @@ function replacer(a){
 			var stmt=a[i].match(/\suntil\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\suntil\s(.*)\S/)[0];
 				stmt2=stmt.substring(7);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"while not ("+args+"):");
@@ -77,10 +74,9 @@ function replacer(a){
                         if(a[i].match(/[^=]=[^=]/)){
 				a[i].replace("=","==");
 			}
-			var stmt=a[i].match(/while(.*)\S/);
+			var stmt=a[i].match(/\swhile\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\swhile\s(.*)\S/)[0];
 				stmt2=stmt.substring(7);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"while ("+args+"):");
@@ -93,10 +89,21 @@ function replacer(a){
 			var stmt=a[i].match(/\sif\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
-				var stmt=a[i].match(/\sif\s(.*)\S/)[0];
 				stmt2=stmt.substring(4);
 				var args=stmt2.replace(":","");
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
+			}
+		}
+		if(a[i].match(/\sof\s/)){
+			var stmt=a[i].match(/\sof\s\(/);
+			if(stmt){
+				a[i]=a[i].replace(stmt,stmt.substring(4));
+			}else{
+				stmt=a[i].match(/\sof\s\S+/);
+				if(stmt){
+					stmt=stmt[0];
+					a[i]=a[i].replace(stmt,"("+stmt.substring(4)+")");
+				}
 			}
 		}
 		tempa+=a[i].substring(1)+"\n";
