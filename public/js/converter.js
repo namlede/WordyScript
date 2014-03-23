@@ -36,7 +36,9 @@ function replacer(a){
     a =a.replace(/ equals /g, "=");
 
 	a =a.replace(/ to /g, "=");
-    
+	a=a.replace(/ be equal to /g, "=");
+	a=a.replace(/ be /g, "=");
+    	
 	a = a.split("\n");
 	//aloks stuff here(a is now a list)
 	var tempa = "";
@@ -118,9 +120,7 @@ function replacer(a){
 			if(stmt){
 				stmt=stmt[0];
 				stmt2=stmt.substring(1,5);
-				console.log('"'+a[i]+'"');
 				a[i]=a[i].replace(stmt2,"");
-				console.log('"'+a[i]+'"');
 			}
 		}
 		if(a[i].match(/\sdef\s/)){

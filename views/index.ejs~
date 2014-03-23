@@ -120,7 +120,6 @@
         var rapydscript_string = change(editor.getValue());
 	
         output = OutputStream(output_opts)
-	alert(rapydscript_string);
         rapydscript_string += '\n'; //just to be safe
         try {
           TOPLEVEL = parse(rapydscript_string, rs_options);
