@@ -5,12 +5,10 @@ function replacer(a){
 	a = a.replace(/ times /g," * ");
 	a = a.replace(/ divided by /g," / ");
 	a = a.replace(/as long as /g,"while ");
-	a = a.replace(/\sset /g,"");
-	a =a.replace(/\slet /g, "");
-	a =a.replace(/\schange /g, "");
-	a =a.replace(/\sas long as /g, "\nwhile ");
-	a =a.replace(/ equal to /g, "=");
-    	a =a.replace(/ equals /g, "=");
+	a = a.replace(/\sset /g,"");//does not work
+	a =a.replace(/\slet /g, "");//does not work
+	a =a.replace(/\schange /g, "");//does not work
+	a =a.replace(/as long as /g, "\nwhile ");
 
 	a =a.replace(/ is in /g, " in ");
 	a =a.replace(/ is greater than or equal to/g, ">=");
@@ -22,6 +20,9 @@ function replacer(a){
 	a =a.replace(/ is less than /g, "<");
 	a =a.replace(/ is true/g, " == true");
 	a =a.replace(/ is false/g, "== false");
+	a =a.replace(/ equal to /g, "=");
+    	a =a.replace(/ equals /g, "=");
+
 	a =a.replace(/ to /g, "=");
     
 	a = a.split("\n");
