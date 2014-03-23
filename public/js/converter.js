@@ -6,7 +6,7 @@ function replacer(a){
 	a = a.replace(/ divided by /g," / ");
 	a = a.replace(/as long as /g,"while ");
 	a = a.replace(/\sset /g,"");//does not work
-	a =a.replace(/\slet /g, "");//does not work
+	a =a.replace(/\slet /g, "");//does not work, add in later 
 	a =a.replace(/\schange /g, "");//does not work
 	a =a.replace(/as long as /g, "\nwhile ");
 
