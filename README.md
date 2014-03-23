@@ -1,4 +1,4 @@
-WordyScript
+WordyScript Compiler
 =========
 
 Compile pseuducode to JavaScript on the web!
@@ -10,3 +10,24 @@ Compile pseuducode to JavaScript on the web!
 
 Programmers:
 Jacob Edelman, Ben Edelman, Alok Tripathy, Aaron Berger
+```python
+define a new function factorial of n
+	if n equals 0
+		return 1
+	return n times factorial of (n-1)
+print(factorial of 4)
+```
+```python
+new function fibonacci of n
+	i=0
+	a=0
+	b=1
+	temp=0
+	as long as i is less than n
+		increase i by 1
+		temp=a+b
+		a=b
+		b=temp
+	return b
+print (fibonacci of 11)
+```
