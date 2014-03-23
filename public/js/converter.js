@@ -135,9 +135,13 @@ function replacer(a){
 			var loc=a[i].indexOf("^^");
 			var space1=a[i].substring(0,loc).lastIndexOf(" ");
 			var space2=loc+a[i].substring(loc).indexOf(" ");
-//			
+
+			var string1=a[i].substring(0,space1+1);
+			var string2=a[i].substring(space1+1,loc);
+			var string3=a[i].substring(loc+2,space2+2);
+			var string4=a[i].substring(space2+2);
+
 //			a[i]=a[i].substring(0,space1+1)+" Math.pow("+a[i].substring(space1+1,loc)+","+a[i].substring(loc+2,space2+2)+")"+a[i].substring(space2+2);
-//				
 		}
 		
 		if(a[i].match(/\sof\s/)){
