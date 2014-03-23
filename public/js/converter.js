@@ -18,6 +18,7 @@ function replacer(a){
 	a =a.replace(/ is less than /g, "<");
 	a =a.replace(/ is true/g, " = true");
 	a =a.replace(/ is false/g, "= false");
+        a=a.replace(/ be equal to /g, "=");
 	a =a.replace(/ equal to /g, "=");
 	
 	
@@ -36,7 +37,7 @@ function replacer(a){
     a =a.replace(/ equals /g, "=");
 
 	a =a.replace(/ to /g, "=");
-	a=a.replace(/ be equal to /g, "=");
+	
 	a=a.replace(/ be /g, "=");
     	
 	a = a.split("\n");
