@@ -102,7 +102,7 @@ function replacer(a){
 		tempa+=a[i].substring(1)+"\n";
 	}
 	
-	a = tempa;
+	a = tempa.substring(1);
 	return(a);
 }
 function change(a){

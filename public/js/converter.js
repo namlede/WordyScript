@@ -88,7 +88,7 @@ function replacer(a){
 		}
 		if(a[i].match(/\sif\s/)){
                         if(a[i].match(/[^=]=[^=]/)){
-				a[i].replace("=","==");
+				a[i]=a[i].replace("=","==");
 			}
 			var stmt=a[i].match(/\sif\s(.*)\S/);
 			if(stmt){
