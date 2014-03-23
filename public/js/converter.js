@@ -14,7 +14,7 @@ function replacer(a){
 	a =a.replace(/ is greater than or equal to/g, ">=");
 	a =a.replace(/ is less than or equal to /g, "<=");
 	a =a.replace(/ is equal to /g, "=");
-	a = a.replace(/ is not equal to /g, "!=");
+	a = a.replace(/ is not equal to /g, "!");
 	
 	a =a.replace(/ is greater than /g, ">");
 	
