@@ -99,10 +99,10 @@ function replacer(a){
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
 			}
 		}
-		tempa+=a[i].substring(2)+"\n";
+		tempa+=a[i].substring(1)+"\n";
 	}
 	
-	a = tempa;
+	a = tempa.substring(1);
 	return(a);
 }
 function change(a){
