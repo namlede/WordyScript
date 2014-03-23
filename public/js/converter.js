@@ -97,6 +97,7 @@ function replacer(a){
 		if(a[i].match(/\sof\s/)){
 			var stmt=a[i].match(/\sof\s\(/);
 			if(stmt){
+				stmt=stmt[0];
 				a[i]=a[i].replace(stmt,stmt.substring(4));
 			}else{
 				stmt=a[i].match(/\sof\s\S+/);
