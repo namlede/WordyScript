@@ -57,10 +57,10 @@
     </div>
     <div class="row" id="textareas">
       <textarea id=code name=code>
-def factorial(n):
-  if n is equal to 0:
-    return 1
-  return n times factorial(n minus 1)
+def factorial of n:
+	if n is equal to 0:
+		return 1
+	return n times factorial(n minus 1)
 
 factorial(5 plus 6) - 266</textarea>
       <textarea class=output id=preview></textarea>
@@ -83,6 +83,9 @@ factorial(5 plus 6) - 266</textarea>
         indentUnit: 4,
         lineNumbers: true,
         autofocus: true,
+        tabSize: 4,
+        indentUnit: 4,
+        indentWithTabs: true,
       });
       var preview = CodeMirror.fromTextArea(document.getElementById('preview'), {
         mode: 'text/javascript',
