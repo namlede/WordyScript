@@ -533,14 +533,8 @@
   MT("linkWeb",
      "[link <http://example.com/>] foo");
 
-  MT("linkWebDouble",
-     "[link <http://example.com/>] foo [link <http://example.com/>]");
-
   MT("linkEmail",
      "[link <user@example.com>] foo");
-
-  MT("linkEmailDouble",
-     "[link <user@example.com>] foo [link <user@example.com>]");
 
   MT("emAsterisk",
      "[em *foo*] bar");
