@@ -143,9 +143,7 @@ function replacer(a){
 			var string1=a[i].substring(0,space1+1);
 			var string2=a[i].substring(space1+1,loc);
 			var string3=a[i].substring(loc+2,space2+2);
-			var string4="";
-			if (space2<a[i].length)
-				string4=a[i].substring(space2+2);
+			var string4=a[i].substring(space2+2);
 
 			var s=(""+string1+" Math.pow("+string2+","+string3+")"+string4);
 			a[i]=s;
