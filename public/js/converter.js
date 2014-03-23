@@ -29,6 +29,7 @@ function replacer(a){
 	//aloks stuff here(a is now a list)
 	var tempa = "";
 	for(var i in a){
+		a[i]=" "+a[i];
 		if(a[i].match(/\sloop\s/)){
 			var stmt=a[i].match(/\sloop\s(.*)\S/);
 			if(stmt){
@@ -79,7 +80,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"while ("+args+"):");
 			}
 		}
-		if(a[i].match(/\sif/)){
+		if(a[i].match(/\sif\s/)){
                         if(a[i].match(/[^=]=[^=]/)){
 				a[i].replace("=","==");
 			}
@@ -93,7 +94,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"if ("+args+"):");
 			}
 		}
-		tempa+=a[i]+"\n";
+		tempa+=a[i].substring(1)+"\n";
 	}
 	
 	a = tempa;
