@@ -120,7 +120,6 @@ factorial(5 + 6) - 266;
         var rapydscript_string = change(editor.getValue());
         output = OutputStream(output_opts)
         rapydscript_string += '\n'; //just to be safe
-        alert(rapydscript_string);
         try {
           TOPLEVEL = parse(rapydscript_string, rs_options);
           TOPLEVEL.print(output);
@@ -134,7 +133,9 @@ factorial(5 + 6) - 266;
       }
       
       var timeout;
-      
+      document.getElementById('compileit').value = "Compiling"
+      timeout = setTimeout(updatePreview, 500);
+      timeout = setTimeout(changeButton, 500);
       editor.on('keyup', function() {
         document.getElementById('compileit').value = "Compiling"
         timeout = setTimeout(updatePreview, 500);
