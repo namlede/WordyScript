@@ -120,7 +120,7 @@ factorial(5 + 6) - 266;
         var rapydscript_string = change(editor.getValue());
         output = OutputStream(output_opts)
         rapydscript_string += '\n'; //just to be safe
-        //alert(rapydscript_string);
+        alert(rapydscript_string);
         try {
           TOPLEVEL = parse(rapydscript_string, rs_options);
           TOPLEVEL.print(output);
