@@ -169,11 +169,11 @@ function replacer(a){
 				stmt=a[i].match(/\sprint\s'.+'/);
 				if(stmt){
 					stmt=stmt[0];
-					a[i]=a[i].replace(stmt,"print("+stmt.substring(7)+")");
+					a[i]=a[i].replace(stmt,"print("+stmt.substring(8)+")");
 				}else{
 					stmt=a[i].match(/\sprint\s".+"/);
 					if(stmt){					stmt=stmt[0];
-					a[i]=a[i].replace(stmt,"print("+stmt.substring(7)+")");
+					a[i]=a[i].replace(stmt,"print("+stmt.substring(8)+")");
 					}else{
 						stmt=a[i].match(/\sprint\s\S+/);
 						if(stmt){					
