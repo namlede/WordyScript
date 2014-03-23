@@ -31,6 +31,7 @@
     <script type="text/javascript" src="rapyd/rapydscript/lib/output.js"></script>
     <script type="text/javascript" src="rapyd/rapydscript/lib/parse.js"></script>
     <script type="text/javascript" src="rapyd/importer.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -54,24 +55,12 @@
     </div>
     <div class="row button-row">
       <input type="button" class="btn btn-lg btn-primary" id="compileit" value="Compiled">
+      <input type="button" class="btn btn-lg btn-primary" onclick="giveurl()" value="Give Url">
     </div>
     <div class="row" id="textareas">
-      <textarea id=code name=code>
-define a new function factorial of n 
-	if n is equal to 0
-		return 1
-	return n times factorial of (n minus 1)
-
-factorial of (5 plus 6) - 266</textarea>
+      <textarea id=code name=code > <%= start %>
+</textarea>
       <textarea class=output id=preview>
-function factorial(n) {
-    if (n == 0) {
-        return 1;
-    }
-    return n * factorial(n - 1);
-}
-
-factorial(5 + 6) - 266;
       </textarea>
     </div>
     <div class="row button-row">
@@ -142,7 +131,17 @@ factorial(5 + 6) - 266;
         timeout = setTimeout(changeButton, 500);
         
       });
-      
+      function hashCode(s){
+	  var a=(s.toString().split("")).reduce(function(a,b){a=((a<<5)-a)+b.charCodeAt(0);return a&a},0);   
+	  if(a<0)return(-2*a-1);
+	  return(2*a);           
+	}
+      function giveurl(){
+	  var socket = io.connect('http://localhost');//fix this later I assume
+    	  socket.emit('url', { url: editor.getValue() });
+	  alert("http://localhost:3000/"+hashCode(editor.getValue()));
+	
+      }
       editor.on('keydown', function() {
         clearTimeout(timeout);
       });
