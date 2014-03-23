@@ -163,6 +163,27 @@ function replacer(a){
 				}
 			}
 		}
+		if(a[i].match(/\sprint\s/)){
+			var stmt=a[i].match(/\sprint\s\(/);
+			if(!stmt){
+				stmt=a[i].match(/\sprint\s'.+'/);
+				if(stmt){
+					stmt=stmt[0];
+					a[i]=a[i].replace(stmt,"print("+stmt.substring(7)+")");
+				}else{
+					stmt=a[i].match(/\sprint\s".+"/);
+					if(stmt){					stmt=stmt[0];
+					a[i]=a[i].replace(stmt,"print("+stmt.substring(7)+")");
+					}else{
+						stmt=a[i].match(/\sprint\s\S+/);
+						if(stmt){					
+							stmt=stmt[0];
+							a[i]=a[i].replace(stmt,"print("+stmt.substring(7)+")");
+						}
+					}
+				}
+			}
+		}
 		tempa+=a[i].substring(1)+"\n";
 	}
 	
