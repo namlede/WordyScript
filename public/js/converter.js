@@ -20,8 +20,8 @@ function replacer(a){
 	a =a.replace(/ is less than /g, "<");
 	a =a.replace(/ is true/g, " == true");
 	a =a.replace(/ is false/g, "== false");
-	a =a.replace(/ equal to /g, "=");
-    a =a.replace(/ equals /g, "=");
+	a =a.replace(/ equal to /g, "==");
+    a =a.replace(/ equals /g, "==");
 
 	a =a.replace(/ to /g, "=");
     
