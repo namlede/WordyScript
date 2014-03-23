@@ -29,7 +29,7 @@ function replacer(a){
 	//aloks stuff here(a is now a list)
 	var tempa = "";
 	for(var i in a){
-		if(a[i].indexOf(/\sloop\s/)>-1){
+		if(a[i].match(/\sloop\s/)){
 			var stmt=a[i].match(/\sloop\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
@@ -40,7 +40,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"for iiii in range("+args+"):");
 			}
 		}
-		if(a[i].indexOf(/\sfor\s/)>-1){
+		if(a[i].match(/\sfor\s/)){
 			var stmt=a[i].match(/\sfor\s(.*)\S/);
 			if(stmt){
 				stmt=stmt[0];
@@ -51,7 +51,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"for "+args+":");
 			}
 		}
-		if(a[i].indexOf(/\suntil\s/)>-1){
+		if(a[i].match(/\suntil\s/)){
                         if(a[i].match(/[^=]=[^=]/)){
 				a[i].replace("=","==");
 			}
@@ -65,7 +65,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"while not ("+args+"):");
 			}
 		}
-		if(a[i].indexOf(/\swhile\s/)>-1){
+		if(a[i].match(/\swhile\s/)){
                         if(a[i].match(/[^=]=[^=]/)){
 				a[i].replace("=","==");
 			}
@@ -79,7 +79,7 @@ function replacer(a){
 				a[i]=a[i].replace(stmt,"while ("+args+"):");
 			}
 		}
-		if(a[i].indexOf(/\sif/)>-1){
+		if(a[i].match(/\sif/)){
                         if(a[i].match(/[^=]=[^=]/)){
 				a[i].replace("=","==");
 			}
