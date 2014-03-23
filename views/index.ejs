@@ -124,6 +124,16 @@ factorial of (5 plus 6) - 266</textarea>
         }
       }
       
+      var timeout;
+      
+      editor.on('keyup', function() {
+        timeout = setTimeout(updatePreview, 500);
+      });
+      
+      editor.on('keydown', function() {
+        clearTimeout(timeout);
+      });
+      
       $('#compileit').click(function(){
         updatePreview();
       });
