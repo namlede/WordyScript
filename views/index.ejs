@@ -152,9 +152,9 @@ print("hello world");
           return(2*a);           
       }
       function geturl(){
-        var socket = io.connect('http://wordyscript.herokuapp.com');//fix this later I assume
+        var socket = io.connect('http://wordyscript.com');//fix this later I assume
     	  socket.emit('url', { url: editor.getValue() });//make it so they can't save infinite amounts to our server
-        bootstrap_alert.warning("http://wordyscript.heroku.com/"+hashCode(editor.getValue()));
+        bootstrap_alert.warning("http://wordyscript.com/"+hashCode(editor.getValue()));
       }
     
       function changeButton() {
