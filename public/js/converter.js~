@@ -8,8 +8,8 @@ function replacer(a){
 	a =a.replace(/as long as /g, "\nwhile ");
 
 	a =a.replace(/ is in /g, " in ");
-	a =a.replace(/ is greater than or equal to/g, ">=");
-	a =a.replace(/ is less than or equal to /g, "<=");
+	a =a.replace(/ at most /g, ">=");
+	a =a.replace(/ at least /g, "<=");
 	a =a.replace(/ is equal to /g, "=");
 	a = a.replace(/ is not equal to /g, "!=");
 	
