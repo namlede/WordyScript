@@ -106,6 +106,26 @@ function replacer(a){
 			if (!a[i].match(":"))
 				a[i]+=" :";
 		}
+		
+		if (a[i].match(/\sincrease\s||\sdecrease\s||\smultiply\s||vdivide\s/)&&a[i].match(/ by /)){
+			if (a[i].match(/\sincrease\s/)) {
+				a[i].replace("increase","")
+				a[i].replace("by","+=")
+			}
+			if (a[i].match(/\sdecrease\s/)) {
+				a[i].replace("decrease","")
+				a[i].replace("by","-=")
+			}
+			if (a[i].match(/\smultiply\s/)) {
+				a[i].replace("multiply","")
+				a[i].replace("by","*=")
+			}
+			if (a[i].match(/\sdivide\s/)) {
+				a[i].replace("divide","")
+				a[i].replace("by","/=")
+			}
+		}
+		
 		if(a[i].match(/\sof\s/)){
 			var stmt=a[i].match(/\sof\s\(/);
 			if(stmt){
