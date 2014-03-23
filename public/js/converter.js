@@ -100,6 +100,10 @@ function replacer(a){
 				a[i]=a[i].replace(stmt.substring(1),"if ("+args+"):");
 			}
 		}
+		if(a[i].match(/\sdef\s/)){
+			if (!a[i].match(";"))
+				a[i]+=" :";
+		}
 		if(a[i].match(/\sof\s/)){
 			var stmt=a[i].match(/\sof\s\(/);
 			if(stmt){
