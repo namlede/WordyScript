@@ -19,13 +19,13 @@ storage.setItem("bob","hi");
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.use(express.favicon(path.join(__dirname, 'public/images/icon.png')));
 app.use(express.logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(express.methodOverride());
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.favicon(path.join(__dirname, 'public/images/icon.png')));
 
 // development only
 if ('development' == app.get('env')) {
@@ -40,7 +40,7 @@ app.get('/:id', function(req, res) {
   res.render('index.ejs',{start:storage.getItem(req.params.id)});
 });
 app.get('/', function(req, res) {
-  res.render('index.ejs',{ start : "print 'hello world'" });
+  res.render('index.ejs',{ start : "print (10 times 17)" });
 });
 
 
