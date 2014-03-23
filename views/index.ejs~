@@ -88,7 +88,7 @@
         $('#alert-placeholder').html('<div class="alert alert-info alert-dismissable fade in"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button><span>'+message+'</span></div>');
       }
       var editor = CodeMirror.fromTextArea(document.getElementById('code'), {
-        mode: 'text',
+        mode: 'text/x-python',
         indentUnit: 4,
         lineNumbers: true,
         autofocus: true,
@@ -138,7 +138,9 @@
 
       window.addEventListener("keyup", keyedUp, false);
       window.addEventListener("keydown", keyedDown, false);
-      
+      document.getElementById('compileit').value = "Compiling"
+      timeout = setTimeout(updatePreview, 1000);
+      timeout = setTimeout(changeButton, 1000);
       function keyedUp() {
         //alert("here2");
         document.getElementById('compileit').value = "Compiling"
