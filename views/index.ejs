@@ -133,9 +133,9 @@ factorial(5 + 6) - 266;
       }
       
       var timeout;
-      document.getElementById('compileit').value = "Compiling"
-      timeout = setTimeout(updatePreview, 500);
-      timeout = setTimeout(changeButton, 500);
+            document.getElementById('compileit').value = "Compiling"
+        timeout = setTimeout(updatePreview, 500);
+        timeout = setTimeout(changeButton, 500);
       editor.on('keyup', function() {
         document.getElementById('compileit').value = "Compiling"
         timeout = setTimeout(updatePreview, 500);

@@ -109,19 +109,19 @@ function replacer(a){
 		}
 		
 		if (a[i].match(/increase /) && a[i].match(/ by /)) {
-			a[i]=a[i].replace(/increase/,"");
+			a[i]=a[i].replace(/increase /,"");
 			a[i]=a[i].replace("by","+=");
 		}
 		if (a[i].match(/decrease /) && a[i].match(/ by /)) {
-			a[i]=a[i].replace(/decrease/,"");
+			a[i]=a[i].replace(/decrease /,"");
 			a[i]=a[i].replace("by","-=");
 		}
 		if (a[i].match(/multiply /) && a[i].match(/ by /)) {
-			a[i]=a[i].replace(/multiply/,"");
+			a[i]=a[i].replace(/multiply /,"");
 			a[i]=a[i].replace("by","*=");
 		}
 		if (a[i].match(/divide /) && a[i].match(/ by /)) {
-			a[i]=a[i].replace(/divide/,"");
+			a[i]=a[i].replace(/divide /,"");
 			a[i]=a[i].replace("by","/=");
 		}
 		
