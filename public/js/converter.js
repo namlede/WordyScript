@@ -131,7 +131,7 @@ function replacer(a){
 			a[i]=a[i].replace("by","/=");
 		}
 		
-		if (a[i].match(/\^\^/)) {
+		while (a[i].match(/\^\^/)) {
 			var loc=a[i].indexOf("^^");
 			var space1=a[i].substring(0,loc).lastIndexOf(" ");
 			var space2=a[i].substring(loc).indexOf(" ");
